@@ -21,8 +21,8 @@ let ytPlayer = null;
 let ytReady = false;
 let musicOn = false;
 const localMusic = document.getElementById("local-music");
-/* Wedding Shehnai — Ustad Bismillah Khan (played via YouTube) */
-const YT_SONG_ID = "0LyS_ZP0NbE";
+/* Kesariya — romantic Bollywood wedding song (played via YouTube) */
+const YT_SONG_ID = "BddP6PYo2gs";
 
 function unlockPage() {
   if (unlocked) return;
