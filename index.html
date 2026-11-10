@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-IN" class="is-locked">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6e1f2f">
+  <title>Abhishek &amp; Tanu — Wedding Invitation</title>
+  <meta name="description" content="You are invited to the wedding of Abhishek Singh and Tanushree Singh on Friday, 20 November 2026 at S.S. Garden Palace, Virar West.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Parisienne&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-locked">
+  <div class="preloader" id="preloader">
+    <div class="preloader__mark">A&amp;T</div>
+    <p>Loading your invitation</p>
+  </div>
+
+  <button class="music" id="music" type="button" aria-pressed="false" aria-label="Play music" hidden>
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M9 18a3 3 0 1 1-2-2.83V6.2l10-2.2v8.2A3 3 0 1 1 15 15V7.1l-6 1.3V18z"/></svg>
+  </button>
+
+  <div id="yt-host" class="yt-host" aria-hidden="true"></div>
+  <audio id="local-music" loop preload="none" src="assets/music.mp3"></audio>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="motes" id="motes" aria-hidden="true"></div>
+      <img class="hero__poster" id="hero-poster" src="assets/shiva-parvati.jpg" alt="" width="768" height="1024">
+      <div class="hero__veil"></div>
+
+      <div class="hero__cover" id="hero-cover">
+        <button class="hero__tap" id="hero-tap" type="button">
+          <span class="hero__tap-text">Tap to Begin</span>
+          <span class="hero__tap-logo" aria-label="A and T">A&amp;T</span>
+        </button>
+        <p class="hero__cover-line">A beautiful love story awaits</p>
+      </div>
+
+      <button class="hero__skip" id="hero-skip" type="button" hidden>Skip ›</button>
+
+      <div class="hero__names" id="hero-names" hidden>
+        <h2 class="hero__name">Abhishek</h2>
+        <span class="hero__weds">Weds</span>
+        <h2 class="hero__name">Tanu</h2>
+      </div>
+
+      <div class="hero__scroll" id="hero-scroll" hidden>
+        <span>Scroll Down</span>
+        <span class="hero__scroll-arrow">↓</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card invite-card">
+        <p class="onkar reveal" aria-hidden="true">ॐ</p>
+        <p class="shabad reveal">
+          ॐ नमः शिवाय<br>
+          With the blessings of Lord Shiva &amp; Mata Parvati
+        </p>
+        <h2 class="invite-heading reveal">We Cordially Invite You</h2>
+        <p class="invite-lead reveal">
+          Together with our beloved families,<br>
+          we request the honour of your gracious<br>
+          presence to celebrate the wedding of
+        </p>
+        <div class="reveal">
+          <h1 class="invite-name">Abhishek</h1>
+          <p class="invite-relation">Son of</p>
+          <p class="invite-parents">Mrs. Mamata Singh &amp; Mr. Mukesh Singh</p>
+        </div>
+        <p class="invite-with reveal">With</p>
+        <div class="reveal">
+          <h1 class="invite-name">Tanushree</h1>
+          <p class="invite-relation">Daughter of</p>
+          <p class="invite-parents">Mrs. Jyotsna Singh &amp; Mr. Tarani Kumar Singh</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section scratch">
+      <div class="sparks" id="sparks" aria-hidden="true"></div>
+      <div class="scratch-head reveal">
+        <p class="eyebrow">A Special Surprise</p>
+        <h2>Scratch the heart to reveal our wedding date</h2>
+      </div>
+      <div class="scratch-stage reveal">
+        <div class="scratch-card" id="scratch-card">
+          <svg class="heart-bg" viewBox="0 0 100 100" aria-hidden="true">
+            <path d="M 50 88.9 C 25.6 69.2, 5 47.5, 5 28.2 C 5 13.6, 15.6 5, 29 5 C 37.8 5, 45.4 10, 50 17.2 C 54.6 10, 62.2 5, 71 5 C 84.4 5, 95 13.6, 95 28.2 C 95 47.5, 74.4 69.2, 50 88.9 Z" fill="#fff"/>
+          </svg>
+          <p class="scratch-date" id="scratch-date">20<br>November<br>2026</p>
+          <div class="foil-wrap">
+            <canvas id="scratch-foil" aria-hidden="true"></canvas>
+          </div>
+          <svg class="heart-line" viewBox="0 0 100 100" aria-hidden="true">
+            <path d="M 50 88.9 C 25.6 69.2, 5 47.5, 5 28.2 C 5 13.6, 15.6 5, 29 5 C 37.8 5, 45.4 10, 50 17.2 C 54.6 10, 62.2 5, 71 5 C 84.4 5, 95 13.6, 95 28.2 C 95 47.5, 74.4 69.2, 50 88.9 Z" fill="none" stroke="#d4af37" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <p class="scratch-hint" id="scratch-hint">Scratch to reveal! ✨</p>
+        <button class="text-link" id="reveal-now" type="button">Can’t scratch? Reveal the date</button>
+      </div>
+    </section>
+
+    <section class="section countdown" aria-label="Countdown">
+      <h2 class="section-title reveal">The Big Day Approaches</h2>
+      <div class="count-grid reveal">
+        <div><div class="count-box"><b id="days">00</b></div><span>Days</span></div>
+        <div><div class="count-box"><b id="hours">00</b></div><span>Hours</span></div>
+        <div><div class="count-box"><b id="minutes">00</b></div><span>Minutes</span></div>
+        <div><div class="count-box"><b id="seconds">00</b></div><span>Seconds</span></div>
+      </div>
+    </section>
+
+    <section class="section story">
+      <div class="story-grid">
+        <figure class="story-photo reveal">
+          <img src="assets/shiva-parvati.jpg" alt="Lord Shiva and Mata Parvati" width="768" height="1024">
+        </figure>
+        <div class="story-text">
+          <h2 class="section-title reveal">Our Blessing</h2>
+          <p class="reveal">
+            With the divine blessings of Lord Shiva and Mata Parvati, and the love of our families, Abhishek and Tanushree begin a new chapter together.
+          </p>
+          <p class="reveal">
+            We feel grateful to celebrate this union with the people who mean the most to us, and we look forward to the joy, laughter and blessings that will fill our wedding days.
+          </p>
+          <p class="reveal">
+            Join us as we step into forever — with love, faith and the warmth of family around us.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section events">
+      <h2 class="section-title reveal">Wedding Events</h2>
+      <div class="events-list">
+        <article class="event reveal">
+          <header>
+            <h3>Sangeet</h3>
+            <p class="event-date">18 November 2026</p>
+            <p class="event-time">Wednesday</p>
+          </header>
+        </article>
+        <article class="event reveal">
+          <header>
+            <h3>Haldi</h3>
+            <p class="event-date">19 November 2026</p>
+            <p class="event-time">Thursday</p>
+          </header>
+        </article>
+        <article class="event reveal">
+          <header>
+            <h3>Mehandi</h3>
+            <p class="event-date">19 November 2026</p>
+            <p class="event-time">Thursday</p>
+          </header>
+        </article>
+        <article class="event event-final reveal">
+          <header>
+            <h3>Wedding</h3>
+            <p class="event-date">20 November 2026</p>
+            <p class="event-time">Friday · 7:00 PM Onwards</p>
+          </header>
+          <footer>
+            <p class="venue-label">Venue</p>
+            <p class="venue-name">S.S. Garden Palace</p>
+            <p class="venue-street">Y K Nagar, Virar West, Vasai-Virar<br>Maharashtra 401303</p>
+            <a class="btn maps-btn" href="https://www.google.com/maps/search/?api=1&amp;query=S.S.+Garden+Palace%2C+Y+K+Nagar%2C+Virar+West%2C+Vasai-Virar%2C+Maharashtra+401303" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="section blessings">
+      <h2 class="section-title reveal">With Blessings From</h2>
+      <div class="bless-grid">
+        <article class="reveal">
+          <h4>Groom’s Parents</h4>
+          <p>Mrs. Mamata Singh &amp; Mr. Mukesh Singh</p>
+        </article>
+        <article class="reveal">
+          <h4>Bride’s Parents</h4>
+          <p>Mrs. Jyotsna Singh &amp; Mr. Tarani Kumar Singh</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="thanks">
+      <p class="thanks-kicker">Thank You</p>
+      <p class="thanks-copy">for being part of our journey. Your love and blessings mean the world to us.</p>
+      <p class="thanks-names">With love,<br><span>Abhishek &amp; Tanu</span></p>
+      <p class="thanks-date">Virar · 20 · 11 · 26</p>
+      <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=S.S.+Garden+Palace%2C+Y+K+Nagar%2C+Virar+West%2C+Vasai-Virar%2C+Maharashtra+401303" target="_blank" rel="noopener noreferrer">Google Maps</a>
+      <button class="btn ghost" id="calendar" type="button">Add to calendar</button>
+    </footer>
+  </main>
+
+  <script src="invite.js"></script>
+</body>
+</html>
