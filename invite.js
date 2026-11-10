@@ -21,8 +21,8 @@ let ytPlayer = null;
 let ytReady = false;
 let musicOn = false;
 const localMusic = document.getElementById("local-music");
-/* Kesariya — romantic Bollywood wedding song (played via YouTube) */
-const YT_SONG_ID = "BddP6PYo2gs";
+/* Varoon Forever — wedding song (played via YouTube) */
+const YT_SONG_ID = "fMThiFar0vI";
 
 function unlockPage() {
   if (unlocked) return;
