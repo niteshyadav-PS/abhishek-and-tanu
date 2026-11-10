@@ -286,6 +286,11 @@ function clearLocalFallback() {
 }
 
 function playLocalMusic() {
+  /* Old local MP3 removed — music is YouTube-only (Vaaroon) */
+  if (!localMusic.src) {
+    setMusicUi(true);
+    return;
+  }
   localMusic.volume = 0.55;
   const play = localMusic.play();
   if (play && play.catch) play.catch(() => {});
