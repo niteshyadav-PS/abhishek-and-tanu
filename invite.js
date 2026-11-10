@@ -19,9 +19,12 @@ let revealed = false;
 let unlocked = false;
 let ytPlayer = null;
 let ytReady = false;
+let ytFailed = false;
 let musicOn = false;
+let musicWanted = false;
+let localFallbackTimer = null;
 const localMusic = document.getElementById("local-music");
-/* Varoon Forever — wedding song (played via YouTube) */
+/* Vaaroon Forever — Shreya Ghoshal (played via YouTube) */
 const YT_SONG_ID = "fMThiFar0vI";
 
 function unlockPage() {
@@ -275,6 +278,13 @@ function setMusicUi(on) {
   musicBtn.setAttribute("aria-label", on ? "Pause music" : "Play music");
 }
 
+function clearLocalFallback() {
+  if (localFallbackTimer) {
+    window.clearTimeout(localFallbackTimer);
+    localFallbackTimer = null;
+  }
+}
+
 function playLocalMusic() {
   localMusic.volume = 0.55;
   const play = localMusic.play();
@@ -282,22 +292,46 @@ function playLocalMusic() {
   setMusicUi(true);
 }
 
-function startMusic() {
-  if (ytPlayer && ytReady && typeof ytPlayer.playVideo === "function") {
-    try {
-      ytPlayer.unMute();
-      ytPlayer.setVolume(60);
-      ytPlayer.playVideo();
-      setMusicUi(true);
-      return;
-    } catch (err) {
-      /* fall through to local file */
+function playYouTubeMusic() {
+  if (!ytPlayer || !ytReady || typeof ytPlayer.playVideo !== "function") return false;
+  try {
+    localMusic.pause();
+    localMusic.currentTime = 0;
+    if (typeof ytPlayer.loadVideoById === "function") {
+      ytPlayer.loadVideoById({ videoId: YT_SONG_ID, startSeconds: 0 });
     }
+    ytPlayer.unMute();
+    ytPlayer.setVolume(70);
+    ytPlayer.playVideo();
+    setMusicUi(true);
+    return true;
+  } catch (err) {
+    return false;
   }
-  playLocalMusic();
+}
+
+function startMusic() {
+  musicWanted = true;
+  setMusicUi(true);
+  clearLocalFallback();
+
+  if (playYouTubeMusic()) return;
+
+  if (ytFailed) {
+    playLocalMusic();
+    return;
+  }
+
+  /* Wait for YouTube instead of immediately playing the old local MP3 */
+  localFallbackTimer = window.setTimeout(() => {
+    if (!musicWanted || (ytReady && !ytFailed)) return;
+    playLocalMusic();
+  }, 3500);
 }
 
 function stopMusic() {
+  musicWanted = false;
+  clearLocalFallback();
   if (ytPlayer && ytReady && typeof ytPlayer.pauseVideo === "function") {
     try { ytPlayer.pauseVideo(); } catch (err) { /* ignore */ }
   }
@@ -311,6 +345,7 @@ function setupYouTube() {
       height: "1",
       width: "1",
       videoId: YT_SONG_ID,
+      host: "https://www.youtube-nocookie.com",
       playerVars: {
         autoplay: 0,
         controls: 0,
@@ -320,16 +355,26 @@ function setupYouTube() {
         playsinline: 1,
         rel: 0,
         loop: 1,
-        playlist: YT_SONG_ID
+        playlist: YT_SONG_ID,
+        origin: window.location.origin
       },
       events: {
         onReady() {
           ytReady = true;
-          if (musicOn || cover.classList.contains("is-gone")) startMusic();
+          ytFailed = false;
+          if (musicWanted || cover.classList.contains("is-gone")) startMusic();
         },
         onError() {
+          ytFailed = true;
           ytReady = false;
-          if (musicOn) playLocalMusic();
+          if (musicWanted) playLocalMusic();
+        },
+        onStateChange(event) {
+          if (!musicWanted) return;
+          if (event.data === YT.PlayerState.PLAYING) {
+            localMusic.pause();
+            setMusicUi(true);
+          }
         }
       }
     });
