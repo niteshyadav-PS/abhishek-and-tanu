@@ -21,8 +21,8 @@ let ytPlayer = null;
 let ytReady = false;
 let musicOn = false;
 const localMusic = document.getElementById("local-music");
-/* Kesariya — popular romantic Bollywood wedding song (played via YouTube) */
-const YT_SONG_ID = "BddP6PYo2gs";
+/* Wedding Shehnai — Ustad Bismillah Khan (played via YouTube) */
+const YT_SONG_ID = "0LyS_ZP0NbE";
 
 function unlockPage() {
   if (unlocked) return;
@@ -67,6 +67,16 @@ function paintMotes() {
     spark.style.animationDuration = `${7 + Math.random() * 9}s`;
     spark.style.animationDelay = `${-Math.random() * 8}s`;
     sparks.appendChild(spark);
+  }
+  const petals = document.getElementById("invite-petals");
+  if (petals) {
+    for (let i = 0; i < 16; i += 1) {
+      const petal = document.createElement("i");
+      petal.style.left = `${Math.random() * 100}%`;
+      petal.style.animationDuration = `${9 + Math.random() * 10}s`;
+      petal.style.animationDelay = `${-Math.random() * 12}s`;
+      petals.appendChild(petal);
+    }
   }
 }
 
@@ -215,6 +225,16 @@ function pad(n) {
   return String(n).padStart(2, "0");
 }
 
+function setCountValue(id, value) {
+  const el = document.getElementById(id);
+  const next = pad(value);
+  if (el.textContent === next) return;
+  el.textContent = next;
+  el.classList.remove("is-tick");
+  void el.offsetWidth;
+  el.classList.add("is-tick");
+}
+
 function tickClock() {
   const diff = WEDDING.getTime() - Date.now();
   if (diff <= 0) {
@@ -224,10 +244,10 @@ function tickClock() {
     return;
   }
   const total = Math.floor(diff / 1000);
-  document.getElementById("days").textContent = pad(Math.floor(total / 86400));
-  document.getElementById("hours").textContent = pad(Math.floor((total % 86400) / 3600));
-  document.getElementById("minutes").textContent = pad(Math.floor((total % 3600) / 60));
-  document.getElementById("seconds").textContent = pad(total % 60);
+  setCountValue("days", Math.floor(total / 86400));
+  setCountValue("hours", Math.floor((total % 86400) / 3600));
+  setCountValue("minutes", Math.floor((total % 3600) / 60));
+  setCountValue("seconds", total % 60);
 }
 
 function watchReveal() {
