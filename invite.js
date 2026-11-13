@@ -38,18 +38,31 @@ function unlockPage() {
   watchReveal();
 }
 
-function beginHero() {
-  if (cover.classList.contains("is-gone")) return;
-  cover.classList.add("is-gone");
-  hero.classList.add("is-live");
-  skip.hidden = false;
+const heroTimers = [];
+
+function showNames() {
   names.hidden = false;
   requestAnimationFrame(() => names.classList.add("is-in"));
+}
+
+function finishOpening() {
+  hero.classList.add("is-open", "is-parted");
+  showNames();
+  skip.hidden = true;
+  unlockPage();
+}
+
+function beginHero() {
+  if (hero.classList.contains("is-open")) return;
+  hero.classList.add("is-open");
+  skip.hidden = false;
   startMusic();
-  window.setTimeout(() => {
+  heroTimers.push(window.setTimeout(() => hero.classList.add("is-parted"), 980));
+  heroTimers.push(window.setTimeout(showNames, 1500));
+  heroTimers.push(window.setTimeout(() => {
     skip.hidden = true;
     unlockPage();
-  }, 2600);
+  }, 3000));
 }
 
 function paintMotes() {
@@ -98,22 +111,17 @@ function sizeFoil() {
 function paintFoil(w, h) {
   const ctx = foilCtx;
   ctx.globalCompositeOperation = "source-over";
-  const g = ctx.createLinearGradient(0, 0, w, h);
-  g.addColorStop(0, "#d4af37");
-  g.addColorStop(0.3, "#e6c27a");
-  g.addColorStop(0.5, "#c9a227");
-  g.addColorStop(0.7, "#fdf2a9");
-  g.addColorStop(1, "#aa771c");
+  const g = ctx.createRadialGradient(w * 0.5, h * 0.42, 8, w * 0.5, h * 0.5, w * 0.7);
+  g.addColorStop(0, "#d5e0c4");
+  g.addColorStop(0.45, "#8ea17c");
+  g.addColorStop(1, "#5f7054");
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, w, h);
-  for (let i = 0; i < w * h * 0.04; i += 1) {
-    ctx.fillStyle = Math.random() > 0.5 ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)";
-    ctx.fillRect(Math.random() * w, Math.random() * h, 1, 1);
+  for (let i = 0; i < w * h * 0.09; i += 1) {
+    const spark = Math.random();
+    ctx.fillStyle = spark > 0.82 ? "rgba(255,255,255,0.75)" : spark > 0.5 ? "rgba(255,255,255,0.28)" : "rgba(40,55,30,0.18)";
+    ctx.fillRect(Math.random() * w, Math.random() * h, spark > 0.9 ? 2 : 1, spark > 0.9 ? 2 : 1);
   }
-  ctx.fillStyle = "rgba(80, 40, 10, 0.55)";
-  ctx.textAlign = "center";
-  ctx.font = "600 14px Cinzel, Times New Roman, serif";
-  ctx.fillText("SCRATCH", w / 2, h / 2 - 4);
 }
 
 function pointFromEvent(event) {
@@ -427,8 +435,9 @@ cover.addEventListener("click", beginHero);
 tap.addEventListener("click", beginHero);
 skip.addEventListener("click", (event) => {
   event.stopPropagation();
-  skip.hidden = true;
-  unlockPage();
+  heroTimers.forEach((id) => window.clearTimeout(id));
+  finishOpening();
+  startMusic();
 });
 foil.addEventListener("pointerdown", onPointerDown, { passive: false });
 foil.addEventListener("pointermove", onPointerMove, { passive: false });
@@ -439,7 +448,9 @@ musicBtn.addEventListener("click", () => {
   if (musicOn) stopMusic();
   else startMusic();
 });
-document.getElementById("calendar").addEventListener("click", downloadCalendar);
+document.querySelectorAll("[data-calendar]").forEach((button) => {
+  button.addEventListener("click", downloadCalendar);
+});
 setupYouTube();
 
 tickClock();
@@ -459,6 +470,5 @@ window.addEventListener("resize", () => {
 });
 
 if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  beginHero();
-  unlockPage();
+  finishOpening();
 }

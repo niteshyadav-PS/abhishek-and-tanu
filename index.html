@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#6e1f2f">
+  <meta name="theme-color" content="#7f8d70">
   <title>Abhishek &amp; Tanu Wedding Invitation</title>
   <meta name="description" content="You are invited to the wedding of Abhishek Singh and Tanushree Singh on Friday, 20 November 2026 at S.S. Garden Palace, Virar West.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Parisienne&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Parisienne&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=garden11">
 </head>
 <body class="is-locked">
   <div class="preloader" id="preloader">
@@ -26,24 +26,84 @@
 
   <main>
     <section class="hero" id="hero">
+      <div class="garden" aria-hidden="true">
+        <img src="assets/garden.svg" alt="">
+      </div>
       <div class="motes" id="motes" aria-hidden="true"></div>
-      <img class="hero__poster" id="hero-poster" src="assets/shiva-parvati.jpg" alt="" width="768" height="1024">
-      <div class="hero__veil"></div>
 
-      <div class="hero__cover" id="hero-cover">
-        <button class="hero__tap" id="hero-tap" type="button">
-          <span class="hero__tap-text">Tap to Begin</span>
-          <span class="hero__tap-logo" aria-label="A and T">A&amp;T</span>
+      <div class="curtains" aria-hidden="true">
+        <div class="curtain curtain--l"><span class="beads"></span></div>
+        <div class="curtain curtain--r"><span class="beads"></span></div>
+      </div>
+
+      <div class="doors" id="hero-cover">
+        <div class="door door--l"></div>
+        <div class="door door--r"></div>
+        <button class="seal" id="hero-tap" type="button" aria-label="Tap to open the invitation">
+          <svg class="seal__frame" viewBox="0 0 220 300" aria-hidden="true">
+            <defs>
+              <linearGradient id="sealFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#fbf6ec"/>
+                <stop offset="1" stop-color="#e8d5b4"/>
+              </linearGradient>
+              <filter id="sealShadow" x="-30%" y="-20%" width="160%" height="150%">
+                <feDropShadow dx="0" dy="10" stdDeviation="7" flood-color="#2f3a28" flood-opacity="0.28"/>
+              </filter>
+            </defs>
+            <g filter="url(#sealShadow)">
+              <circle cx="110" cy="28" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="131.5" cy="31.5" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="151.8" cy="42" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="169.7" cy="58.7" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="184.1" cy="80.7" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="194.2" cy="106.7" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="199.3" cy="135.3" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="199.3" cy="164.7" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="194.2" cy="193.3" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="184.1" cy="219.3" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="169.7" cy="241.3" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="151.8" cy="258" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="131.5" cy="268.5" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="110" cy="272" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="88.5" cy="268.5" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="68.2" cy="258" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="50.3" cy="241.3" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="35.9" cy="219.3" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="25.8" cy="193.3" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="20.7" cy="164.7" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="20.7" cy="135.3" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="25.8" cy="106.7" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="35.9" cy="80.7" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="50.3" cy="58.7" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="68.2" cy="42" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <circle cx="88.5" cy="31.5" r="8" fill="#f8f1e2" stroke="#c6a56b" stroke-width="1.15"/>
+              <ellipse cx="110" cy="150" rx="74" ry="108" fill="url(#sealFill)" stroke="#c6a56b" stroke-width="2.4"/>
+              <ellipse cx="110" cy="150" rx="62" ry="94" fill="none" stroke="#c6a56b" stroke-width="0.8" opacity="0.85"/>
+            </g>
+            <g fill="none" stroke="#6d7c58" stroke-width="1.2" stroke-linecap="round">
+              <path d="M110 58c2 14 2 22 0 34"/>
+              <path d="M110 74c-10-2-16 2-18 8 8 0 14-2 18-8z"/>
+              <path d="M110 74c10-2 16 2 18 8-8 0-14-2-18-8z"/>
+              <path d="M110 66c-7-6-8-12-4-16 4 6 6 10 4 16z"/>
+              <path d="M110 66c7-6 8-12 4-16-4 6-6 10-4 16z"/>
+            </g>
+            <path d="M92 214c8 6 28 6 36 0" fill="none" stroke="#c6a56b" stroke-width="1.1"/>
+            <path d="M110 208v10" stroke="#c6a56b" stroke-width="1"/>
+          </svg>
+          <span class="seal__text">Tap to Open</span>
         </button>
-        <p class="hero__cover-line">A New Chapter of Forever Begins</p>
       </div>
 
       <button class="hero__skip" id="hero-skip" type="button" hidden>Skip ›</button>
 
       <div class="hero__names" id="hero-names" hidden>
-        <h2 class="hero__name">Abhishek</h2>
-        <span class="hero__weds">Weds</span>
+        <p class="hero__kicker">We're getting married</p>
+        <span class="hero__heart" aria-hidden="true">♥</span>
+        <h2 class="hero__name"><span class="name-cap">A</span>bhishek</h2>
+        <p class="hero__meta">Son of Mr. Mukesh Singh<br>&amp; Mrs. Mamata Singh</p>
+        <span class="hero__weds">&amp;</span>
         <h2 class="hero__name">Tanu</h2>
+        <p class="hero__meta">Daughter of Mr. Tarani Kumar Singh<br>&amp; Mrs. Jyotsna Singh</p>
       </div>
 
       <div class="hero__scroll" id="hero-scroll" hidden>
@@ -52,7 +112,7 @@
       </div>
     </section>
 
-    <section class="section invite-section">
+    <section class="section invite-section" id="invite">
       <div class="invite-petals" id="invite-petals" aria-hidden="true"></div>
       <div class="card invite-card">
         <p class="onkar reveal" aria-hidden="true">ॐ</p>
@@ -68,7 +128,7 @@
           presence to celebrate the wedding of
         </p>
         <div class="reveal invite-person">
-          <h1 class="invite-name">Abhishek Singh</h1>
+          <h1 class="invite-name"><span class="name-cap">A</span>bhishek Singh</h1>
           <p class="invite-relation">Son of</p>
           <p class="invite-parents">Mrs. Mamata Singh &amp; Mr. Mukesh Singh</p>
         </div>
@@ -81,32 +141,33 @@
       </div>
     </section>
 
-    <section class="section scratch">
+    <section class="section scratch" id="date">
       <div class="sparks" id="sparks" aria-hidden="true"></div>
       <div class="scratch-head reveal">
         <p class="eyebrow">A Special Surprise</p>
-        <h2>Scratch the heart to reveal our wedding date</h2>
+        <h2>Scratch to Reveal</h2>
       </div>
       <div class="scratch-stage reveal">
         <div class="scratch-card" id="scratch-card">
           <svg class="heart-bg" viewBox="0 0 100 100" aria-hidden="true">
             <path d="M 50 88.9 C 25.6 69.2, 5 47.5, 5 28.2 C 5 13.6, 15.6 5, 29 5 C 37.8 5, 45.4 10, 50 17.2 C 54.6 10, 62.2 5, 71 5 C 84.4 5, 95 13.6, 95 28.2 C 95 47.5, 74.4 69.2, 50 88.9 Z" fill="#fff"/>
           </svg>
-          <p class="scratch-date" id="scratch-date">20<br>November<br>2026</p>
+          <p class="scratch-date" id="scratch-date"><span>You're Invited</span>20 November<br>2026</p>
           <div class="foil-wrap">
             <canvas id="scratch-foil" aria-hidden="true"></canvas>
           </div>
           <svg class="heart-line" viewBox="0 0 100 100" aria-hidden="true">
-            <path d="M 50 88.9 C 25.6 69.2, 5 47.5, 5 28.2 C 5 13.6, 15.6 5, 29 5 C 37.8 5, 45.4 10, 50 17.2 C 54.6 10, 62.2 5, 71 5 C 84.4 5, 95 13.6, 95 28.2 C 95 47.5, 74.4 69.2, 50 88.9 Z" fill="none" stroke="#d4af37" stroke-width="1.2"/>
+            <path d="M 50 88.9 C 25.6 69.2, 5 47.5, 5 28.2 C 5 13.6, 15.6 5, 29 5 C 37.8 5, 45.4 10, 50 17.2 C 54.6 10, 62.2 5, 71 5 C 84.4 5, 95 13.6, 95 28.2 C 95 47.5, 74.4 69.2, 50 88.9 Z" fill="none" stroke="#6e7d62" stroke-width="1.2"/>
           </svg>
         </div>
         <p class="scratch-hint" id="scratch-hint">Scratch to reveal! ✨</p>
         <button class="text-link" id="reveal-now" type="button">Can’t scratch? Reveal the date</button>
+        <button class="btn save-date" type="button" data-calendar>Save the Date</button>
       </div>
     </section>
 
     <section class="section countdown" aria-label="Countdown">
-      <h2 class="section-title reveal">The Big Day Approaches</h2>
+      <h2 class="section-title reveal">Counting Down to Forever</h2>
       <div class="count-grid reveal">
         <div><div class="count-box"><b id="days">00</b></div><span>Days</span></div>
         <div><div class="count-box"><b id="hours">00</b></div><span>Hours</span></div>
@@ -135,8 +196,8 @@
       </div>
     </section>
 
-    <section class="section events">
-      <h2 class="section-title reveal">Wedding Events</h2>
+    <section class="section events" id="events">
+      <h2 class="section-title reveal">Program Timeline</h2>
       <div class="events-list">
         <article class="event reveal">
           <header>
@@ -169,6 +230,14 @@
             <p class="venue-label">Venue</p>
             <p class="venue-name">S.S. Garden Palace</p>
             <p class="venue-street">Y K Nagar, Virar West, Vasai-Virar<br>Maharashtra 401303</p>
+            <div class="map-frame">
+              <iframe
+                title="Map of S.S. Garden Palace, Virar West"
+                src="https://maps.google.com/maps?q=19.464353,72.804677&amp;z=16&amp;hl=en&amp;output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen></iframe>
+            </div>
             <a class="btn maps-btn" href="https://www.google.com/maps/search/?api=1&amp;query=S.S.+Garden+Palace%2C+Y+K+Nagar%2C+Virar+West%2C+Vasai-Virar%2C+Maharashtra+401303" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
           </footer>
         </article>
@@ -192,13 +261,13 @@
     <footer class="thanks">
       <p class="thanks-kicker">Thank You</p>
       <p class="thanks-copy">for being part of our journey. Your love and blessings mean the world to us.</p>
-      <p class="thanks-names">With love,<br><span>Abhishek &amp; Tanu</span></p>
+      <p class="thanks-names">With love,<br><span><span class="name-cap">A</span>bhishek &amp; Tanu</span></p>
       <p class="thanks-date">Virar · 20 · 11 · 26</p>
       <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=S.S.+Garden+Palace%2C+Y+K+Nagar%2C+Virar+West%2C+Vasai-Virar%2C+Maharashtra+401303" target="_blank" rel="noopener noreferrer">Google Maps</a>
-      <button class="btn ghost" id="calendar" type="button">Add to calendar</button>
+      <button class="btn ghost" id="calendar" type="button" data-calendar>Add to calendar</button>
     </footer>
   </main>
 
-  <script src="invite.js?v=vaaroon3"></script>
+  <script src="invite.js?v=garden1"></script>
 </body>
 </html>
