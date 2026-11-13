@@ -17,15 +17,10 @@ let lastPoint = null;
 let scratched = false;
 let revealed = false;
 let unlocked = false;
-let ytPlayer = null;
-let ytReady = false;
-let ytFailed = false;
 let musicOn = false;
 let musicWanted = false;
-let localFallbackTimer = null;
 const localMusic = document.getElementById("local-music");
-/* Vaaroon Forever — Shreya Ghoshal (played via YouTube) */
-const YT_SONG_ID = "fMThiFar0vI";
+/* Vaaroon Forever — local MP3 */
 
 function unlockPage() {
   if (unlocked) return;
@@ -92,6 +87,16 @@ function paintMotes() {
       petal.style.animationDuration = `${9 + Math.random() * 10}s`;
       petal.style.animationDelay = `${-Math.random() * 12}s`;
       petals.appendChild(petal);
+    }
+  }
+  const thanksLeaves = document.getElementById("thanks-leaves");
+  if (thanksLeaves) {
+    for (let i = 0; i < 12; i += 1) {
+      const leaf = document.createElement("i");
+      leaf.style.left = `${Math.random() * 100}%`;
+      leaf.style.animationDuration = `${10 + Math.random() * 10}s`;
+      leaf.style.animationDelay = `${-Math.random() * 12}s`;
+      thanksLeaves.appendChild(leaf);
     }
   }
 }
@@ -286,120 +291,22 @@ function setMusicUi(on) {
   musicBtn.setAttribute("aria-label", on ? "Pause music" : "Play music");
 }
 
-function clearLocalFallback() {
-  if (localFallbackTimer) {
-    window.clearTimeout(localFallbackTimer);
-    localFallbackTimer = null;
-  }
-}
-
 function playLocalMusic() {
-  /* Old local MP3 removed — music is YouTube-only (Vaaroon) */
-  if (!localMusic.src) {
-    setMusicUi(true);
-    return;
-  }
-  localMusic.volume = 0.55;
+  localMusic.volume = 0.65;
   const play = localMusic.play();
   if (play && play.catch) play.catch(() => {});
   setMusicUi(true);
 }
 
-function playYouTubeMusic() {
-  if (!ytPlayer || !ytReady || typeof ytPlayer.playVideo !== "function") return false;
-  try {
-    localMusic.pause();
-    localMusic.currentTime = 0;
-    if (typeof ytPlayer.loadVideoById === "function") {
-      ytPlayer.loadVideoById({ videoId: YT_SONG_ID, startSeconds: 0 });
-    }
-    ytPlayer.unMute();
-    ytPlayer.setVolume(70);
-    ytPlayer.playVideo();
-    setMusicUi(true);
-    return true;
-  } catch (err) {
-    return false;
-  }
-}
-
 function startMusic() {
   musicWanted = true;
-  setMusicUi(true);
-  clearLocalFallback();
-
-  if (playYouTubeMusic()) return;
-
-  if (ytFailed) {
-    playLocalMusic();
-    return;
-  }
-
-  /* Wait for YouTube instead of immediately playing the old local MP3 */
-  localFallbackTimer = window.setTimeout(() => {
-    if (!musicWanted || (ytReady && !ytFailed)) return;
-    playLocalMusic();
-  }, 3500);
+  playLocalMusic();
 }
 
 function stopMusic() {
   musicWanted = false;
-  clearLocalFallback();
-  if (ytPlayer && ytReady && typeof ytPlayer.pauseVideo === "function") {
-    try { ytPlayer.pauseVideo(); } catch (err) { /* ignore */ }
-  }
   localMusic.pause();
   setMusicUi(false);
-}
-
-function setupYouTube() {
-  window.onYouTubeIframeAPIReady = function onYouTubeIframeAPIReady() {
-    ytPlayer = new YT.Player("yt-host", {
-      height: "1",
-      width: "1",
-      videoId: YT_SONG_ID,
-      host: "https://www.youtube-nocookie.com",
-      playerVars: {
-        autoplay: 0,
-        controls: 0,
-        disablekb: 1,
-        fs: 0,
-        modestbranding: 1,
-        playsinline: 1,
-        rel: 0,
-        loop: 1,
-        playlist: YT_SONG_ID,
-        origin: window.location.origin
-      },
-      events: {
-        onReady() {
-          ytReady = true;
-          ytFailed = false;
-          if (musicWanted || cover.classList.contains("is-gone")) startMusic();
-        },
-        onError() {
-          ytFailed = true;
-          ytReady = false;
-          if (musicWanted) playLocalMusic();
-        },
-        onStateChange(event) {
-          if (!musicWanted) return;
-          if (event.data === YT.PlayerState.PLAYING) {
-            localMusic.pause();
-            setMusicUi(true);
-          }
-        }
-      }
-    });
-  };
-
-  if (window.YT && window.YT.Player) {
-    window.onYouTubeIframeAPIReady();
-    return;
-  }
-  const tag = document.createElement("script");
-  tag.src = "https://www.youtube.com/iframe_api";
-  document.head.appendChild(tag);
 }
 
 function downloadCalendar() {
@@ -451,8 +358,6 @@ musicBtn.addEventListener("click", () => {
 document.querySelectorAll("[data-calendar]").forEach((button) => {
   button.addEventListener("click", downloadCalendar);
 });
-setupYouTube();
-
 tickClock();
 window.setInterval(tickClock, 1000);
 
