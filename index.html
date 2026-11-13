@@ -4,13 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#7f8d70">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Abhishek &amp; Tanu Wedding Invitation</title>
   <meta name="description" content="You are invited to the wedding of Abhishek Singh and Tanushree Singh on Friday, 20 November 2026 at S.S. Garden Palace, Virar West.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Parisienne&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=garden17">
+  <link rel="stylesheet" href="styles.css?v=garden11">
 </head>
 <body class="is-locked">
   <div class="preloader" id="preloader">
@@ -22,7 +21,8 @@
     <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M9 18a3 3 0 1 1-2-2.83V6.2l10-2.2v8.2A3 3 0 1 1 15 15V7.1l-6 1.3V18z"/></svg>
   </button>
 
-  <audio id="local-music" src="assets/vaaroon.mp3" loop preload="auto"></audio>
+  <div id="yt-host" class="yt-host" aria-hidden="true"></div>
+  <audio id="local-music" loop preload="none"></audio>
 
   <main>
     <section class="hero" id="hero">
@@ -167,7 +167,6 @@
     </section>
 
     <section class="section countdown" aria-label="Countdown">
-      <p class="eyebrow reveal">Until we say yes</p>
       <h2 class="section-title reveal">Counting Down to Forever</h2>
       <div class="count-grid reveal">
         <div><div class="count-box"><b id="days">00</b></div><span>Days</span></div>
@@ -188,7 +187,7 @@
             With the divine blessings of Lord Shiva and Mata Parvati, and the love of our families, Abhishek and Tanushree begin a new chapter together.
           </p>
           <p class="reveal">
-            We feel grateful to celebrate this union with the people who mean the most to us, and we look forward to the joy, laughter and blessings that will fill our wedding day.
+            We feel grateful to celebrate this union with the people who mean the most to us, and we look forward to the joy, laughter and blessings that will fill our wedding days.
           </p>
           <p class="reveal">
             Join us as we step into forever with love, faith and the warmth of family around us.
@@ -197,43 +196,37 @@
       </div>
     </section>
 
-    <section class="section details" id="events">
-      <div class="details-bloom" id="details-petals" aria-hidden="true"></div>
-      <div class="details-stage reveal">
-        <p class="eyebrow">You are invited</p>
-        <h2 class="section-title">The Wedding</h2>
-        <span class="invite-ornament" aria-hidden="true"></span>
-        <article class="details-card">
-          <ul class="details-facts">
-            <li class="fact">
-              <span class="fact-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="22" height="22"><rect x="3.5" y="5" width="17" height="15.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 10h17M8 3.5v3M16 3.5v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-              </span>
-              <p class="fact-label">Date</p>
-              <p class="fact-value">20</p>
-              <p class="fact-note">November 2026</p>
-            </li>
-            <li class="fact">
-              <span class="fact-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="9" cy="12" r="5.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="15" cy="12" r="5.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
-              </span>
-              <p class="fact-label">Day</p>
-              <p class="fact-value">Friday</p>
-              <p class="fact-note">Evening</p>
-            </li>
-            <li class="fact">
-              <span class="fact-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v4.5l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-              </span>
-              <p class="fact-label">Time</p>
-              <p class="fact-value">7:00</p>
-              <p class="fact-note">PM onwards</p>
-            </li>
-          </ul>
-          <div class="details-venue">
-            <span class="venue-pin" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.2" fill="currentColor"/></svg>
-            </span>
+    <section class="section events" id="events">
+      <h2 class="section-title reveal">Program Timeline</h2>
+      <div class="events-list">
+        <article class="event reveal">
+          <header>
+            <h3>Sangeet</h3>
+            <p class="event-date">18 November 2026</p>
+            <p class="event-time">Wednesday</p>
+          </header>
+        </article>
+        <article class="event reveal">
+          <header>
+            <h3>Haldi</h3>
+            <p class="event-date">19 November 2026</p>
+            <p class="event-time">Thursday</p>
+          </header>
+        </article>
+        <article class="event reveal">
+          <header>
+            <h3>Mehandi</h3>
+            <p class="event-date">19 November 2026</p>
+            <p class="event-time">Thursday</p>
+          </header>
+        </article>
+        <article class="event event-final reveal">
+          <header>
+            <h3>Wedding</h3>
+            <p class="event-date">20 November 2026</p>
+            <p class="event-time">Friday · 7:00 PM Onwards</p>
+          </header>
+          <footer>
             <p class="venue-label">Venue</p>
             <p class="venue-name">S.S. Garden Palace</p>
             <p class="venue-street">Y K Nagar, Virar West, Vasai-Virar<br>Maharashtra 401303</p>
@@ -243,11 +236,10 @@
                 src="https://maps.google.com/maps?q=19.464353,72.804677&amp;z=16&amp;hl=en&amp;output=embed"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-                tabindex="-1"></iframe>
-              <a class="map-open" href="https://www.google.com/maps/search/?api=1&amp;query=S.S.+Garden+Palace%2C+Y+K+Nagar%2C+Virar+West%2C+Vasai-Virar%2C+Maharashtra+401303" target="_blank" rel="noopener noreferrer">View the map</a>
+                allowfullscreen></iframe>
             </div>
-            <a class="btn ghost details-map" href="https://www.google.com/maps/search/?api=1&amp;query=S.S.+Garden+Palace%2C+Y+K+Nagar%2C+Virar+West%2C+Vasai-Virar%2C+Maharashtra+401303" target="_blank" rel="noopener noreferrer">Get directions</a>
-          </div>
+            <a class="btn maps-btn" href="https://www.google.com/maps/search/?api=1&amp;query=S.S.+Garden+Palace%2C+Y+K+Nagar%2C+Virar+West%2C+Vasai-Virar%2C+Maharashtra+401303" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+          </footer>
         </article>
       </div>
     </section>
@@ -256,16 +248,10 @@
       <h2 class="section-title reveal">With Blessings From</h2>
       <div class="bless-grid">
         <article class="reveal">
-          <span class="bless-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 20c4-3 7-6.2 7-10a4 4 0 0 0-7-2 4 4 0 0 0-7 2c0 3.8 3 7 7 10z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-          </span>
           <h4>Groom’s Parents</h4>
           <p>Mrs. Mamata Singh &amp; Mr. Mukesh Singh</p>
         </article>
         <article class="reveal">
-          <span class="bless-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 20c4-3 7-6.2 7-10a4 4 0 0 0-7-2 4 4 0 0 0-7 2c0 3.8 3 7 7 10z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-          </span>
           <h4>Bride’s Parents</h4>
           <p>Mrs. Jyotsna Singh &amp; Mr. Tarani Kumar Singh</p>
         </article>
@@ -282,6 +268,6 @@
     </footer>
   </main>
 
-  <script src="invite.js?v=garden6"></script>
+  <script src="invite.js?v=garden1"></script>
 </body>
 </html>
